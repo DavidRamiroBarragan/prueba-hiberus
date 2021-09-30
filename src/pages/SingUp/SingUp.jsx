@@ -1,11 +1,12 @@
-import { Button, Col, Form, Input, Row, Typography } from 'antd'
+import { Button, Col, Form, Row, Typography } from 'antd'
 import { signUp } from '../../services/auth'
 import { useHistory } from 'react-router'
-import './SingUp.scss'
 import { FORM_VALIDATION, validateStatus } from 'utils/forms'
 import { useMemo } from 'react'
 import PasswordField from 'components/PasswordField/PasswordField'
-import TextField from 'components/TextField/TextField'
+import CommonField from 'components/CommonField/CommonField'
+import { Link } from 'react-router-dom'
+import './SingUp.scss'
 
 const SingUpPage = () => {
   const [form] = Form.useForm()
@@ -14,6 +15,7 @@ const SingUpPage = () => {
   const { getFieldsError, getFieldValue } = form
 
   const handleOnSubmit = (data) => {
+    delete data.confirmPassword
     signUp(data)
     history.replace('/')
   }
@@ -34,7 +36,7 @@ const SingUpPage = () => {
     <Row justify='center' align='center'>
       <Col xs={24} sm={18} md={18} xl={10}>
         <Form form={form} onFinish={handleOnSubmit} layout='vertical'>
-          <TextField
+          <CommonField
             label='Name'
             name='name'
             rules={[FORM_VALIDATION.NAME_REQUIRED]}
@@ -42,7 +44,7 @@ const SingUpPage = () => {
             hasFeedback
             initialValue=''
           />
-          <TextField
+          <CommonField
             label='Surname'
             name='surname'
             rules={[FORM_VALIDATION.SURNAME_REQUIRED]}
@@ -51,7 +53,7 @@ const SingUpPage = () => {
             placeholder='surname'
             initialValue=''
           />
-          <Form.Item
+          <CommonField
             label='E-mail'
             name='email'
             rules={[
@@ -59,9 +61,8 @@ const SingUpPage = () => {
               FORM_VALIDATION.EMAIL_REQUIRED,
             ]}
             validateStatus={validateField('email')}
-            hasFeedback>
-            <Input placeholder='user@domain.com' />
-          </Form.Item>
+            hasFeedback
+          />
           <PasswordField
             label='Password'
             name='password'
@@ -92,8 +93,9 @@ const SingUpPage = () => {
             type='primary'
             htmlType='submit'
             className='login-form__button'>
-            Submit
+            Registro
           </Button>
+          <Link to='login'>Ya tienes usuario, haz click aquí</Link>
         </Form>
       </Col>
     </Row>

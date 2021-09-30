@@ -1,5 +1,5 @@
 import { Form, Input } from 'antd'
-export default function TextField({
+export default function CommonField({
   name,
   rules,
   label,

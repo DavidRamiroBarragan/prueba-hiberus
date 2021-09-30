@@ -1,4 +1,4 @@
-import { Button, Col, Form, Input, Row } from 'antd'
+import { Button, Col, Form, Row } from 'antd'
 import { login } from 'services/auth'
 import { Redirect } from 'react-router'
 import { Link } from 'react-router-dom'
@@ -8,6 +8,7 @@ import { setUser } from 'core/reducers/authReducer/actions'
 import './Login.scss'
 import { FORM_VALIDATION } from 'utils/forms'
 import PasswordField from 'components/PasswordField/PasswordField'
+import CommonField from 'components/CommonField/CommonField'
 
 const Login = () => {
   const [form] = Form.useForm()
@@ -28,15 +29,14 @@ const Login = () => {
     <Row justify='center' align='center'>
       <Col xs={24} sm={18} md={18} xl={10}>
         <Form form={form} onFinish={handleOnSubmit} layout='vertical'>
-          <Form.Item
+          <CommonField
             label='Email'
             name='email'
             rules={[
               FORM_VALIDATION.EMAIL_FORMAT,
               FORM_VALIDATION.EMAIL_REQUIRED,
-            ]}>
-            <Input />
-          </Form.Item>
+            ]}
+          />
           <PasswordField
             name='password'
             label='Password'
@@ -47,9 +47,9 @@ const Login = () => {
             type='primary'
             htmlType='submit'
             className='login-form__button'>
-            Submit
+            Iniciar Sesión
           </Button>
-          <Link to='sign-up'>Sing Up</Link>
+          <Link to='sign-up'>Registrate</Link>
         </Form>
       </Col>
     </Row>

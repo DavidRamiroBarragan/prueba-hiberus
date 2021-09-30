@@ -19,7 +19,7 @@ function Logout() {
   return (
     <div>
       <Button type='primary' danger onClick={handleOnClick}>
-        Logout
+        Cerrar Sesión
       </Button>
     </div>
   )
