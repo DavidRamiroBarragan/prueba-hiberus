@@ -18,6 +18,7 @@ import { setUser } from 'core/reducers/authReducer/actions'
 import { useAuthDispatch } from 'hooks/useAuthDispatch/useAuthDispatch'
 import { useAuthContext } from 'hooks/useAuthContext/useAuthContext'
 import Notifications from 'components/ResponseInterceptor/ResponseInterceptor'
+import { Http } from 'core/api/http'
 
 function App() {
   const { Header, Footer, Content } = Layout
@@ -25,12 +26,12 @@ function App() {
   const { isLogged } = useAuthContext()
 
   useEffect(() => {
-    if (isLogged) {
-      return
-    }
-    const userSession = getLocalStorageData()
-    if (userSession) {
-      dispatch(setUser(userSession))
+    if (!isLogged) {
+      const userSession = getLocalStorageData()
+      if (userSession) {
+        Http.setToken(userSession.token)
+        dispatch(setUser(userSession.user, true))
+      }
     }
   }, [dispatch, isLogged])
 

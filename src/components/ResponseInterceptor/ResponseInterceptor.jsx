@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { notification } from 'antd'
-import { Http } from '../../services/http'
+import { Http } from '../../core/api/http'
 
 function ResponseInterceptor({ children }) {
   const onSuccess = (response) => {
@@ -9,7 +9,8 @@ function ResponseInterceptor({ children }) {
 
   const onError = (error) => {
     notification.error({
-      description: error.message,
+      message: 'Error',
+      description: 'Ups!! Algo salió mal',
     })
     return Promise.reject(error)
   }
