@@ -12,33 +12,33 @@ export const validateStatus =
   }
 
 export const FORM_VALIDATION = {
-  EMAIL_FORMAT: { type: 'email', message: 'The input is not valid E-mail!' },
+  EMAIL_FORMAT: { type: 'email', message: 'El E-Mail no es correcto!' },
   EMAIL_REQUIRED: {
     required: true,
-    message: 'Please input your E-mail!',
+    message: 'Por favor, introduzca su E-mail!',
   },
   NAME_REQUIRED: {
     required: true,
-    message: 'Please input your Name!',
+    message: 'Por favor, introduzca su Nombre!',
   },
   SURNAME_REQUIRED: {
     required: true,
-    message: 'Please input your Surname!',
+    message: 'Por favor, introduzca su Apellido!',
   },
   PASSWORD_FORMAT: {
-    message: 'Password has no valid format',
+    message: 'La contraseña no tiene un formato correcto',
     pattern: passwordRegex,
   },
   PASSWORD_REQUIRED: {
     required: true,
-    message: 'Please confirm your password!',
+    message: 'Por favor, confirma tu contraseña!',
   },
   PASSWORD_REQUIRED_CONFIRM: {
     required: true,
-    message: 'Please confirm your password!',
+    message: 'Por favor, confirma tu contraseña!',
   },
   PASSWORD_CHECK_CONFIRM: (checkPassword) => ({
     validator: checkPassword,
-    message: 'Passwords has to be equals',
+    message: 'Las contraseñas tienen que ser iguales',
   }),
 }

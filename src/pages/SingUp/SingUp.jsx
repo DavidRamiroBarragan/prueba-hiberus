@@ -2,7 +2,7 @@ import { Button, Col, Form, Row } from 'antd'
 import { signUp } from 'services/auth'
 import { useHistory } from 'react-router'
 import { FORM_VALIDATION, validateStatus } from 'utils/forms'
-import { useMemo } from 'react'
+import { useCallback, useMemo } from 'react'
 import PasswordField from 'components/PasswordField/PasswordField'
 import CommonField from 'components/CommonField/CommonField'
 import { Link } from 'react-router-dom'
@@ -19,12 +19,15 @@ const SingUp = () => {
     history.replace('/')
   }
 
-  const passwordValidator = (rule, value) => {
-    if (value && value !== getFieldValue('password')) {
-      throw new Error('The two inputs are inconsistent!')
-    }
-    return Promise.resolve()
-  }
+  const passwordValidator = useCallback(
+    (rule, value) => {
+      if (value && value !== getFieldValue('password')) {
+        throw new Error('The two inputs are inconsistent!')
+      }
+      return Promise.resolve()
+    },
+    [getFieldValue]
+  )
 
   const validateField = useMemo(
     () => validateStatus({ getFieldsError, getFieldValue }),
