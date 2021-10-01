@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# Prueba Técnica para Hiberus
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Secciones
 
-## Available Scripts
+- Login
+- Logout
+- SignUp
+- Users
 
-In the project directory, you can run:
+## Creación y organización del proyecto
 
-### `npm start`
+Terminar el proyecto me ha llevado más o menos 12h.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+He intentado realizar una arquitectura lo más intuitiva posible, para facilitar futuros desarrollos o requerimientos.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+También se han configurado el linter eslint y prettier, para una mejor calidad del código siguiendo la guia de JSStandard. Para los commits se ha incluido husky, para así controlar la subida de código que no cumple con los linters.
 
-### `npm test`
+### Decisiones
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Para el manejo de las peticiones a backend he creado una pequeña api usando axios, esta librería es muy configurable y ofrece muchas posibilidades.
 
-### `npm run build`
+Para tener accesible desde todos los componentes el estado del usuario, he creado un AuthProvider y su hook useAuthContext, de esta manera me ha sido más fácil gestionar los apartados privados de la aplicación.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Para poder almacenar y trabajar con la información del usuario he utilizado las herramientas que ofrece react, useReducer y createContext. Las he creido convenientes para una aplicación de este tamaño. Me parecía excesivo usar redux.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Organización
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### components
 
-### `npm run eject`
+Para componentes que se puedan utilizar en otras partes de la aplicación o que tienen una funcionalidad muy concreta
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### core
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Configuraciones del proyecto, contextos necesarios, apis, declaración de rutas...
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### hooks
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Hooks reutilizables
 
-## Learn More
+#### pages
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Vistas de las secciones, cada sección engloba los componentes que necesita
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### styles
 
-### Code Splitting
+Estilos scss generales
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+#### utils
 
-### Analyzing the Bundle Size
+Diferentes utilidades para tenerlas disponibles en toda la aplicación, separadas por funcionalidad
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Problemas y soluciones
 
-### Making a Progressive Web App
+1. Manejo del token, para solventarla he creado una instancia de axios para la aplicación, con la cual una vez obtenido el token lo añado a su configuración de la aplicación. Para mantener la sesión activa guardo este token, junto con la información del usuario en el localStorage.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+2. Interceptar las responses, para poder mostrar notificaciones, he creado un componente (ResponseInterceptor) para mantener la lógica abstraida y no tener que gestionar en cada componente los errores producidos por las peticiones.
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+3. Aprender el manejo de la librería Ant Design, no había trabajado con esta librería y he tenido que ir aprendiendola ha medida que iba desarrollando.

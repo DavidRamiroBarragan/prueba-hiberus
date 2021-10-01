@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import { isCancel } from 'axios'
-import { getUsers } from 'services/users'
+import { getUsers } from 'core/services/users'
 
 export default function useFetchUser() {
   const [data, setData] = useState([])

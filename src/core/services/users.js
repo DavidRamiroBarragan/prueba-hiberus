@@ -1,4 +1,4 @@
-import { Http } from '../core/api/http'
+import { Http } from '../api/http'
 
 export async function getUsers(config) {
   try {

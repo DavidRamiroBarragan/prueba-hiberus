@@ -1,4 +1,4 @@
-import { logout } from 'services/auth'
+import { logout } from 'core/services/auth'
 import { AUTH_ACTIONS } from './constants'
 
 export const initialAuthReducer = {

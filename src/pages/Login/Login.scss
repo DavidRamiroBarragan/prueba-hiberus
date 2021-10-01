@@ -1,23 +1,25 @@
 @import '../../styles/main';
 
-.login__form-container {
-  @include form-styles(300px);
-}
-
-.login__form-row {
-  display: block;
-  @media (min-width: 410px) {
-    display: block;
-    width: auto;
-    height: auto;
+.login__form {
+  &-container {
+    @include form-styles(300px);
   }
-}
 
-.login__form-col {
-  @media (min-width: 410px) {
-    display: flex;
-    justify-content: center;
-    width: auto;
-    height: auto;
+  &-row {
+    display: block;
+    @media (min-width: 410px) {
+      display: block;
+      width: auto;
+      height: auto;
+    }
+  }
+
+  &-col {
+    @media (min-width: 410px) {
+      display: flex;
+      justify-content: center;
+      width: auto;
+      height: auto;
+    }
   }
 }

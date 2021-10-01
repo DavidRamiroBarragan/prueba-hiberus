@@ -1,6 +1,6 @@
 import { Popconfirm, Table, message, Typography } from 'antd'
 import useFetchUser from 'hooks/useFetchUsers/useFetchUser'
-import { deleteUserById } from 'services/users'
+import { deleteUserById } from 'core/services/users'
 
 function Users() {
   const [data, getUsersData] = useFetchUser()
