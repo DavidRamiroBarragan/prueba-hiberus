@@ -121,6 +121,5 @@ fabric.properties
 .idea/codestream.xml
 
 # End of https://www.toptal.com/developers/gitignore/api/react,webstorm
-.idea/inspectionProfiles/Project_Default.xml
-.idea/vcs.xml
 .eslintcache
+.idea
