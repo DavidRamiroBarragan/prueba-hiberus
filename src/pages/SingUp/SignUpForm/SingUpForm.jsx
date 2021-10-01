@@ -5,7 +5,7 @@ import PasswordField from 'components/PasswordField/PasswordField'
 import CommonField from 'components/CommonField/CommonField'
 import { Link } from 'react-router-dom'
 
-export default function SingForm({ handleOnSubmit }) {
+export default function SingUpForm({ handleOnSubmit }) {
   const [form] = Form.useForm()
   const { getFieldsError, getFieldValue } = form
   const passwordValidator = useCallback(
@@ -25,20 +25,21 @@ export default function SingForm({ handleOnSubmit }) {
   return (
     <Form form={form} onFinish={handleOnSubmit} layout='vertical'>
       <CommonField
-        label='Name'
+        label='Nombre'
         name='name'
         rules={[FORM_VALIDATION.NAME_REQUIRED]}
         validateStatus={validateField('name')}
         hasFeedback
         initialValue=''
+        placeholder='Nombre'
       />
       <CommonField
-        label='Surname'
+        label='Apellidos'
         name='surname'
         rules={[FORM_VALIDATION.SURNAME_REQUIRED]}
         validateStatus={validateField('surname')}
         hasFeedback
-        placeholder='surname'
+        placeholder='Apellidos'
         initialValue=''
       />
       <CommonField
@@ -46,10 +47,11 @@ export default function SingForm({ handleOnSubmit }) {
         name='email'
         rules={[FORM_VALIDATION.EMAIL_FORMAT, FORM_VALIDATION.EMAIL_REQUIRED]}
         validateStatus={validateField('email')}
+        placeholder='user@domain.com'
         hasFeedback
       />
       <PasswordField
-        label='Password'
+        label='Contraseña'
         name='password'
         rules={[
           FORM_VALIDATION.PASSWORD_FORMAT,
@@ -58,10 +60,10 @@ export default function SingForm({ handleOnSubmit }) {
         validateStatus={validateField('password')}
         hasFeedback
         initialValue=''
-        help='Minimo 8 caracteres, al menos una letra mayúsculas y un número'
+        help='Mínimo 8 caracteres, al menos una letra mayúsculas y un número'
       />
       <PasswordField
-        label='Confirm Password'
+        label='Confirma tu Contraseña'
         name='confirmPassword'
         rules={[
           FORM_VALIDATION.PASSWORD_REQUIRED_CONFIRM,

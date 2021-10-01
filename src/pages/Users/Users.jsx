@@ -13,12 +13,12 @@ function Users() {
       key: 'id',
     },
     {
-      title: 'Name',
+      title: 'Nombre',
       dataIndex: 'name',
       key: 'name',
     },
     {
-      title: 'Surname',
+      title: 'Apellidos',
       dataIndex: 'surname',
       key: 'surname',
     },
@@ -28,7 +28,7 @@ function Users() {
       key: 'email',
     },
     {
-      title: 'Actions',
+      title: 'Acciones',
       dataIndex: 'actions',
       render: (_, record) =>
         data.count >= 1 ? (
@@ -46,7 +46,7 @@ function Users() {
     const response = await deleteUserById(record.id)
 
     if (response.status === 204) {
-      message.success('User delete successfully')
+      message.success('El usuario se ha eliminado')
       getUsersData()
     }
   }
