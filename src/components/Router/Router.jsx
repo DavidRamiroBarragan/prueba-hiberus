@@ -5,7 +5,7 @@ import Login from 'pages/Login/Login'
 export default function Router() {
   return (
     <Switch>
-      {routes.map((route, i) => {
+      {routes.map((route) => {
         if (route.isProtected) {
           return (
             <ProtectedRoute

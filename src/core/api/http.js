@@ -28,10 +28,6 @@ function _delete(url, config) {
   return instance.delete(url, config)
 }
 
-function requestInterceptor(onFulfilled, onRejected) {
-  return instance.interceptors.request.use(onFulfilled, onRejected)
-}
-
 function responseInterceptor(onFulfilled, onRejected) {
   return instance.interceptors.response.use(onFulfilled, onRejected)
 }
@@ -44,6 +40,5 @@ export const Http = {
   put,
   patch,
   delete: _delete,
-  requestInterceptor,
   responseInterceptor,
 }
