@@ -8,7 +8,7 @@ export async function login({ email, password }) {
     Http.setToken(token.data.accessToken)
 
     if (token) {
-      user = await await Http.get('/users/me')
+      user = await Http.get('/users/me')
       setLocalStorageToken({ token: token.data.accessToken, user: user.data })
     }
     return user.data
