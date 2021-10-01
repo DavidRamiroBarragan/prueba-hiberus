@@ -1,6 +1,6 @@
-import { Menu } from 'antd'
 import { NavLink } from 'react-router-dom'
-function Navbar({ isLogged }) {
+import { Menu } from 'antd'
+export default function Navbar({ isLogged }) {
   return (
     <Menu mode='horizontal' theme='dark'>
       {isLogged && (
@@ -16,5 +16,3 @@ function Navbar({ isLogged }) {
     </Menu>
   )
 }
-
-export default Navbar

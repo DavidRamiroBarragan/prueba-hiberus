@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 import { notification } from 'antd'
-import { Http } from '../../core/api/http'
+import { Http } from 'core/api/http'
 
-function ResponseInterceptor({ children }) {
+export default function ResponseInterceptor({ children }) {
   const onSuccess = (response) => {
     return response
   }
@@ -21,5 +21,3 @@ function ResponseInterceptor({ children }) {
 
   return <>{children}</>
 }
-
-export default ResponseInterceptor

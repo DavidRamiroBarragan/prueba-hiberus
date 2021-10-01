@@ -1,8 +1,8 @@
 import { Popconfirm, Table, message, Typography } from 'antd'
-import useFetchUser from 'hooks/useFetchUsers/useFetchUser'
 import { deleteUserById } from 'core/services/users'
+import useFetchUser from 'hooks/useFetchUsers/useFetchUser'
 
-function Users() {
+export default function Users() {
   const [data, getUsersData] = useFetchUser()
   const { Title } = Typography
 
@@ -65,5 +65,3 @@ function Users() {
     </div>
   )
 }
-
-export default Users

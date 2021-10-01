@@ -1,8 +1,8 @@
-import { useAuthContext } from 'hooks/useAuthContext/useAuthContext'
 import { Route } from 'react-router-dom'
 import { Redirect } from 'react-router'
+import useAuthContext from 'hooks/useAuthContext/useAuthContext'
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
+export default function PrivateRoute({ component: Component, ...rest }) {
   const { isLogged } = useAuthContext()
   return (
     <Route
@@ -13,5 +13,3 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
     />
   )
 }
-
-export default PrivateRoute

@@ -1,12 +1,12 @@
-import { login } from 'core/services/auth'
 import { Redirect } from 'react-router'
-import { useAuthContext } from 'hooks/useAuthContext/useAuthContext'
-import { useAuthDispatch } from 'hooks/useAuthDispatch/useAuthDispatch'
+import { login } from 'core/services/auth'
 import { setUser } from 'core/reducers/authReducer/actions'
-import './Login.scss'
+import useAuthDispatch from 'hooks/useAuthDispatch/useAuthDispatch'
+import useAuthContext from 'hooks/useAuthContext/useAuthContext'
 import LoginForm from './LoginForm/LoginForm'
+import './Login.scss'
 
-const Login = () => {
+export default function Login() {
   const { isLogged } = useAuthContext()
   const dispatch = useAuthDispatch()
 
@@ -31,5 +31,3 @@ const Login = () => {
     </div>
   )
 }
-
-export default Login

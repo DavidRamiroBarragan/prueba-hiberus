@@ -1,7 +1,7 @@
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons'
 import { Form, Input } from 'antd'
 
-function PasswordField({ name, rules, label, ...rest }) {
+export default function PasswordField({ name, rules, label, ...rest }) {
   return (
     <Form.Item label={label} name={name} rules={rules} {...rest}>
       <Input.Password
@@ -12,5 +12,3 @@ function PasswordField({ name, rules, label, ...rest }) {
     </Form.Item>
   )
 }
-
-export default PasswordField

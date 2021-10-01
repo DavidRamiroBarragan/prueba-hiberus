@@ -1,11 +1,11 @@
+import { Redirect } from 'react-router'
 import { Button } from 'antd'
 import { logoutAction } from 'core/reducers/authReducer/actions'
-import { useAuthContext } from 'hooks/useAuthContext/useAuthContext'
-import { useAuthDispatch } from 'hooks/useAuthDispatch/useAuthDispatch'
-import { Redirect } from 'react-router'
+import useAuthDispatch from 'hooks/useAuthDispatch/useAuthDispatch'
+import useAuthContext from 'hooks/useAuthContext/useAuthContext'
 import './Logout.scss'
 
-function Logout() {
+export default function Logout() {
   const dispatch = useAuthDispatch()
   const { isLogged } = useAuthContext()
 
@@ -25,5 +25,3 @@ function Logout() {
     </div>
   )
 }
-
-export default Logout

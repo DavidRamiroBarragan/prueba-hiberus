@@ -1,8 +1,8 @@
+import { Switch, Route } from 'react-router-dom'
+import { routes } from 'core/routes/routes'
 import ProtectedRoute from 'components/PrivateRoute/PrivateRoute'
 import Login from 'pages/Login/Login'
-import { Switch, Route } from 'react-router-dom'
-import { routes } from '../../core/routes/routes'
-function Router() {
+export default function Router() {
   return (
     <Switch>
       {routes.map((route, i) => {
@@ -29,5 +29,3 @@ function Router() {
     </Switch>
   )
 }
-
-export default Router

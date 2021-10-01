@@ -1,8 +1,5 @@
-import {
-  setLocalStorageToken,
-  removeLocalStorageToken,
-} from '../../utils/token'
-import { Http } from '../api/http'
+import { Http } from 'core/api/http'
+import { removeLocalStorageToken, setLocalStorageToken } from 'utils/token'
 
 export async function login({ email, password }, config) {
   try {

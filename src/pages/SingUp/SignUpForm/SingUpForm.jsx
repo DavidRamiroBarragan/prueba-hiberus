@@ -1,9 +1,9 @@
-import { Button, Form } from 'antd'
-import { FORM_VALIDATION, validateStatus } from 'utils/forms'
 import { useCallback, useMemo } from 'react'
+import { Button, Form } from 'antd'
+import { Link } from 'react-router-dom'
 import PasswordField from 'components/PasswordField/PasswordField'
 import CommonField from 'components/CommonField/CommonField'
-import { Link } from 'react-router-dom'
+import { FORM_VALIDATION, validateStatus } from 'utils/forms'
 
 export default function SingUpForm({ handleOnSubmit }) {
   const [form] = Form.useForm()

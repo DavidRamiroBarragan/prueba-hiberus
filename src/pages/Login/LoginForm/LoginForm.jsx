@@ -1,10 +1,10 @@
-import { FORM_VALIDATION } from 'utils/forms'
-import PasswordField from 'components/PasswordField/PasswordField'
-import CommonField from 'components/CommonField/CommonField'
 import { Link } from 'react-router-dom'
 import { Button, Form } from 'antd'
+import PasswordField from 'components/PasswordField/PasswordField'
+import CommonField from 'components/CommonField/CommonField'
+import { FORM_VALIDATION } from 'utils/forms'
 
-function LoginForm({ handleOnSubmit }) {
+export default function LoginForm({ handleOnSubmit }) {
   const [form] = Form.useForm()
   return (
     <Form form={form} onFinish={handleOnSubmit} layout='vertical'>
@@ -26,5 +26,3 @@ function LoginForm({ handleOnSubmit }) {
     </Form>
   )
 }
-
-export default LoginForm

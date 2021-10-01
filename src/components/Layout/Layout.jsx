@@ -1,17 +1,17 @@
-import { Layout as AntDLayout } from 'antd'
-import { BrowserRouter as Router } from 'react-router-dom'
 import { useEffect } from 'react'
+import { BrowserRouter as Router } from 'react-router-dom'
+import { Layout as AntDLayout } from 'antd'
 import { getLocalStorageData } from 'utils/token'
 import { setUser } from 'core/reducers/authReducer/actions'
-import { useAuthDispatch } from 'hooks/useAuthDispatch/useAuthDispatch'
-import { useAuthContext } from 'hooks/useAuthContext/useAuthContext'
-import Notifications from 'components/ResponseInterceptor/ResponseInterceptor'
 import { Http } from 'core/api/http'
+import useAuthDispatch from 'hooks/useAuthDispatch/useAuthDispatch'
+import useAuthContext from 'hooks/useAuthContext/useAuthContext'
+import Notifications from 'components/ResponseInterceptor/ResponseInterceptor'
 import Navbar from 'components/Navbar/Navbar'
 import Routes from 'components/Router/Router'
 import './Layout.scss'
 
-function Layout() {
+export default function Layout() {
   const { Header, Footer, Content } = AntDLayout
   const dispatch = useAuthDispatch()
   const { isLogged } = useAuthContext()
@@ -40,5 +40,3 @@ function Layout() {
     </Notifications>
   )
 }
-
-export default Layout
