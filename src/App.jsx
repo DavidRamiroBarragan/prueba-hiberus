@@ -1,6 +1,4 @@
 import { Layout } from 'antd'
-
-import useNotifications from 'hooks/useNotifications/useNotifications'
 import Login from 'pages/Login/Login'
 import Logout from 'pages/Logout/Logout'
 import SingUpPage from 'pages/SingUp/SingUp'
@@ -19,10 +17,10 @@ import { getLocalStorageData } from 'utils/token'
 import { setUser } from 'core/reducers/authReducer/actions'
 import { useAuthDispatch } from 'hooks/useAuthDispatch/useAuthDispatch'
 import { useAuthContext } from 'hooks/useAuthContext/useAuthContext'
+import Notifications from 'components/ResponseInterceptor/ResponseInterceptor'
 
 function App() {
   const { Header, Footer, Content } = Layout
-  useNotifications()
   const dispatch = useAuthDispatch()
   const { isLogged } = useAuthContext()
 
@@ -37,7 +35,7 @@ function App() {
   }, [dispatch, isLogged])
 
   return (
-    <>
+    <Notifications>
       <Router>
         <Header>{isLogged && <NavLink to='/logout'>Logout</NavLink>}</Header>
         <Content className='container'>
@@ -50,7 +48,7 @@ function App() {
         </Content>
         <Footer>Footer</Footer>
       </Router>
-    </>
+    </Notifications>
   )
 }
 

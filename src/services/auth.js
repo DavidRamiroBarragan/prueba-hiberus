@@ -2,15 +2,19 @@ import { setLocalStorageToken, removeLocalStorageToken } from '../utils/token'
 import { Http } from './http'
 
 export async function login({ email, password }) {
-  Http.post('/auth/log-in', { email, password })
-    .then((response) => {
-      Http.setToken(response.data.accessToken)
-      return response
-    })
-    .then(async (resp) => {
-      const { data: user } = await Http.get('/users/me')
-      setLocalStorageToken({ token: resp.data.accessToken, user })
-    })
+  try {
+    let user
+    const token = await Http.post('/auth/log-in', { email, password })
+    Http.setToken(token.data.accessToken)
+
+    if (token) {
+      user = await await Http.get('/users/me')
+      setLocalStorageToken({ token: token.data.accessToken, user: user.data })
+    }
+    return user.data
+  } catch (e) {
+    return false
+  }
 }
 
 export function logout() {

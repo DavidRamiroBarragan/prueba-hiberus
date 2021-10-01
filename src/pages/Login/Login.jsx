@@ -16,9 +16,10 @@ const Login = () => {
   const dispatch = useAuthDispatch()
 
   const handleOnSubmit = async (data) => {
-    login(data).then(() => {
-      dispatch(setUser(data))
-    })
+    const user = await login(data)
+    if (user) {
+      dispatch(setUser(user, true))
+    }
   }
 
   if (isLogged) {

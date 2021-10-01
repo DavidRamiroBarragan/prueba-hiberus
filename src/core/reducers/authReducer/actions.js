@@ -1,8 +1,8 @@
 import { AUTH_ACTIONS } from './constants'
 
-export const setUser = (user) => ({
+export const setUser = (user, isLogged) => ({
   type: AUTH_ACTIONS.LOGIN,
-  payload: user,
+  payload: { user, isLogged },
 })
 
 export const logoutAction = () => ({

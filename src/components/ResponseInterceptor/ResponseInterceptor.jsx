@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { notification } from 'antd'
 import { Http } from '../../services/http'
 
-function useNotifications() {
+function ResponseInterceptor({ children }) {
   const onSuccess = (response) => {
     return response
   }
@@ -17,6 +17,8 @@ function useNotifications() {
   useEffect(() => {
     Http.responseInterceptor(onSuccess, onError)
   }, [])
+
+  return <>{children}</>
 }
 
-export default useNotifications
+export default ResponseInterceptor
