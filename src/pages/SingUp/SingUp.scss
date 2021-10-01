@@ -1,1 +1,5 @@
+@import '../../styles/main';
 
+.sing-up__form-container {
+  @include form-styles(525px);
+}

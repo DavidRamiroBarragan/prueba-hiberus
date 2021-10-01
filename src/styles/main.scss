@@ -1,4 +1,5 @@
-@import './abstract/variables';
+@import './abstract/_variables';
+@import './abstract/mixins';
 
 body {
   margin: 0;
@@ -11,4 +12,8 @@ body {
 
 .login-form__button {
   width: 100%;
+  @media (min-width: 410px) {
+    display: block;
+    width: auto;
+  }
 }

@@ -8,7 +8,11 @@ export default function useFetchUser() {
   const getUsersData = useCallback(async () => {
     try {
       const users = await getUsers()
-      setData(users)
+      const dataToColumn = users.items.map((user) => ({
+        ...user,
+        key: user.id,
+      }))
+      setData({ items: dataToColumn, count: users.count })
     } catch (error) {
       if (isCancel(error)) {
         console.log('Request canceled', error.message)

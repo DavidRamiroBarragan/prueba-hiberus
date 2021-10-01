@@ -9,18 +9,22 @@ function UsersPage() {
     {
       title: 'id',
       dataIndex: 'id',
+      key: 'id',
     },
     {
       title: 'Name',
       dataIndex: 'name',
+      key: 'name',
     },
     {
       title: 'Surname',
       dataIndex: 'surname',
+      key: 'surname',
     },
     {
       title: 'E-Mail',
       dataIndex: 'email',
+      key: 'email',
     },
     {
       title: 'Actions',
@@ -33,6 +37,7 @@ function UsersPage() {
             <a>Delete</a>
           </Popconfirm>
         ) : null,
+      key: 'actions',
     },
   ]
 

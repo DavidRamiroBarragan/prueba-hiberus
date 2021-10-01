@@ -1,17 +1,5 @@
 import { Layout } from 'antd'
-import Login from 'pages/Login/Login'
-import Logout from 'pages/Logout/Logout'
-import SingUpPage from 'pages/SingUp/SingUp'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  NavLink,
-} from 'react-router-dom'
-import 'antd/dist/antd.css'
-import './App.scss'
-import ProtectedRoute from 'components/PrivateRoute/PrivateRoute'
-import UsersPage from 'pages/Users/Users'
+import { BrowserRouter as Router } from 'react-router-dom'
 import { useEffect } from 'react'
 import { getLocalStorageData } from 'utils/token'
 import { setUser } from 'core/reducers/authReducer/actions'
@@ -19,6 +7,9 @@ import { useAuthDispatch } from 'hooks/useAuthDispatch/useAuthDispatch'
 import { useAuthContext } from 'hooks/useAuthContext/useAuthContext'
 import Notifications from 'components/ResponseInterceptor/ResponseInterceptor'
 import { Http } from 'core/api/http'
+import Navbar from 'components/Navbar/Navbar'
+import Routes from 'components/Router/Router'
+import './App.scss'
 
 function App() {
   const { Header, Footer, Content } = Layout
@@ -38,16 +29,13 @@ function App() {
   return (
     <Notifications>
       <Router>
-        <Header>{isLogged && <NavLink to='/logout'>Logout</NavLink>}</Header>
+        <Header className='header'>
+          <Navbar isLogged={isLogged} />
+        </Header>
         <Content className='container'>
-          <Switch>
-            <Route path='/sign-up' exact component={SingUpPage} />
-            <ProtectedRoute path='/users' exact component={UsersPage} />
-            <ProtectedRoute path='/logout' exact component={Logout} />
-            <Route path='/' component={Login} />
-          </Switch>
+          <Routes />
         </Content>
-        <Footer>Footer</Footer>
+        <Footer className='footer'>Prueba Hiberus David Ramiro</Footer>
       </Router>
     </Notifications>
   )

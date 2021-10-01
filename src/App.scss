@@ -1,4 +1,13 @@
+@import './styles/main';
+
 .container {
   height: calc(100vh - 134px);
-  padding: 0 20px;
+  padding: 20px;
+}
+.header {
+  @include flex-justify-end;
+}
+.footer {
+  display: flex;
+  justify-content: center;
 }
