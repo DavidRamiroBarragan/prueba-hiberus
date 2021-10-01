@@ -19,8 +19,8 @@ export function getLocalStorageData() {
 }
 
 export function setLocalStorageToken(data) {
-  const dataStrigiFy = JSON.stringify(data)
-  localStorage.setItem('data', dataStrigiFy)
+  const dataStringify = JSON.stringify(data)
+  localStorage.setItem('data', dataStringify)
 }
 
 export function removeLocalStorageToken() {
