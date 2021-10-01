@@ -58,8 +58,7 @@ export default function SingForm({ handleOnSubmit }) {
         validateStatus={validateField('password')}
         hasFeedback
         initialValue=''
-        help='Minimum eight characters, at least one uppercase letter, one
-            lowercase letter and one number'
+        help='Minimo 8 caracteres, al menos una letra mayúsculas y un número'
       />
       <PasswordField
         label='Confirm Password'
