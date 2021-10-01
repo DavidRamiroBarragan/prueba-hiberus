@@ -58,8 +58,7 @@ export default function Users() {
         <Table
           columns={columns}
           dataSource={data.items}
-          pagination={{ pageSize: 10 }}
-          scroll={{ y: 240 }}
+          scroll={{ y: 600}}
         />
       )}
     </div>
