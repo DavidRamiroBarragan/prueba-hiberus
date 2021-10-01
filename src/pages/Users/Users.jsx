@@ -1,9 +1,10 @@
-import { Popconfirm, Table, message } from 'antd'
+import { Popconfirm, Table, message, Typography } from 'antd'
 import useFetchUser from 'hooks/useFetchUsers/useFetchUser'
 import { deleteUserById } from 'services/users'
 
-function UsersPage() {
+function Users() {
   const [data, getUsersData] = useFetchUser()
+  const { Title } = Typography
 
   const columns = [
     {
@@ -51,15 +52,18 @@ function UsersPage() {
   }
 
   return (
-    data && (
-      <Table
-        columns={columns}
-        dataSource={data.items}
-        pagination={{ pageSize: 10 }}
-        scroll={{ y: 240 }}
-      />
-    )
+    <div className='users-container'>
+      <Title>Users</Title>
+      {data && (
+        <Table
+          columns={columns}
+          dataSource={data.items}
+          pagination={{ pageSize: 10 }}
+          scroll={{ y: 240 }}
+        />
+      )}
+    </div>
   )
 }
 
-export default UsersPage
+export default Users

@@ -1,13 +1,13 @@
 import { AuthProvider } from 'core/context/auth/AuthContext'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
+import Layout from './components/Layout/Layout'
 import 'antd/dist/antd.css'
 import './index.scss'
 
 ReactDOM.render(
   <AuthProvider>
-    <App />
+    <Layout />
   </AuthProvider>,
   document.getElementById('root')
 )

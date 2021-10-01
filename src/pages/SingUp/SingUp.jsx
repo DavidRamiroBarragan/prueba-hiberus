@@ -8,7 +8,7 @@ import CommonField from 'components/CommonField/CommonField'
 import { Link } from 'react-router-dom'
 import './SingUp.scss'
 
-const SingUpPage = () => {
+const SingUp = () => {
   const [form] = Form.useForm()
   const history = useHistory()
   const { getFieldsError, getFieldValue } = form
@@ -101,4 +101,4 @@ const SingUpPage = () => {
   )
 }
 
-export default SingUpPage
+export default SingUp

@@ -1,4 +1,4 @@
-import { Layout } from 'antd'
+import { Layout as AntDLayout } from 'antd'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { useEffect } from 'react'
 import { getLocalStorageData } from 'utils/token'
@@ -9,10 +9,10 @@ import Notifications from 'components/ResponseInterceptor/ResponseInterceptor'
 import { Http } from 'core/api/http'
 import Navbar from 'components/Navbar/Navbar'
 import Routes from 'components/Router/Router'
-import './App.scss'
+import './Layout.scss'
 
-function App() {
-  const { Header, Footer, Content } = Layout
+function Layout() {
+  const { Header, Footer, Content } = AntDLayout
   const dispatch = useAuthDispatch()
   const { isLogged } = useAuthContext()
 
@@ -41,4 +41,4 @@ function App() {
   )
 }
 
-export default App
+export default Layout

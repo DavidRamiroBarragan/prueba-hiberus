@@ -1,19 +1,19 @@
 import Logout from 'pages/Logout/Logout'
-import SingUpPage from 'pages/SingUp/SingUp'
-import UsersPage from 'pages/Users/Users'
+import SingUp from 'pages/SingUp/SingUp'
+import Users from 'pages/Users/Users'
 
 export const routes = [
   {
     path: '/sign-up',
     isExact: true,
     isProtected: false,
-    component: SingUpPage,
+    component: SingUp,
   },
   {
     path: '/users',
     isExact: true,
     isProtected: true,
-    component: UsersPage,
+    component: Users,
   },
   {
     path: '/logout',

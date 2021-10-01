@@ -3,8 +3,6 @@ const instance = axios.create({
   baseURL: process.env.REACT_APP_DOMAIN,
 })
 
-const cancelToken = axios.CancelToken
-
 function setToken(token) {
   // eslint-disable-next-line dot-notation
   instance.defaults.headers.common['Authorization'] = 'Bearer ' + token
@@ -47,5 +45,4 @@ export const Http = {
   delete: _delete,
   requestInterceptor,
   responseInterceptor,
-  cancelToken,
 }
