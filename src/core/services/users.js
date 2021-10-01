@@ -11,8 +11,7 @@ export async function getUsers(config) {
 
 export async function deleteUserById(id) {
   try {
-    const response = await Http.delete(`/users/${id}`)
-    return response
+    return await Http.delete(`/users/${id}`)
   } catch {
     return false
   }

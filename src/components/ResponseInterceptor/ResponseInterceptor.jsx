@@ -13,13 +13,18 @@ export default function ResponseInterceptor({ children }) {
   }
 
   const onError = useCallback((error) => {
+    let description = 'Ups!! Algo salió mal'
     if(error.response.status === 403 || error.response.status === 401){
       dispatch(logoutAction())
       logout()
     }
+    if(error.response.status === 409 ){
+      description = "El usuario ya existe"
+    }
+
     notification.error({
       message: 'Error',
-      description: 'Ups!! Algo salió mal',
+      description,
     })
     return Promise.reject(error)
   },[dispatch])
